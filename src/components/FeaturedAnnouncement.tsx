@@ -18,11 +18,9 @@ const FeaturedAnnouncement: React.FC<FeaturedAnnouncementProps> = ({
 }) => {
   if (!show) return null;
 
-  // Select the announcement content based on language
   const announcementContent =
     language === "en" ? announcementEN : announcementTR;
 
-  // Fallback message if the selected language announcement is not available
   const fallbackMessage =
     language === "en"
       ? "Announcement not available in English."
