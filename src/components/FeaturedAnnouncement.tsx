@@ -1,21 +1,33 @@
 import React from "react";
+import DOMPurify from "dompurify";
 
 interface FeaturedAnnouncementProps {
   show: boolean;
   language: "en" | "tr";
-  announcementTR: string;
-  announcementEN: string;
+  announcementTR?: string;
+  announcementEN?: string;
   link?: string;
 }
 
 const FeaturedAnnouncement: React.FC<FeaturedAnnouncementProps> = ({
   show,
   language,
-  announcementTR,
-  announcementEN,
-  link,
+  announcementTR = "",
+  announcementEN = "",
+  link = "#",
 }) => {
   if (!show) return null;
+
+  // Select the announcement content based on language
+  const announcementContent =
+    language === "en" ? announcementEN : announcementTR;
+
+  // Fallback message if the selected language announcement is not available
+  const fallbackMessage =
+    language === "en"
+      ? "Announcement not available in English."
+      : "Duyuru Türkçe olarak mevcut değil.";
+
   return (
     <section className="bg-yellow-100 text-yellow-900 py-2">
       <div className="container mx-auto text-center">
@@ -23,10 +35,11 @@ const FeaturedAnnouncement: React.FC<FeaturedAnnouncementProps> = ({
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className={`font-bold text-sm hover:underline md:text-lg`}
-        >
-          {language === "en" ? announcementEN : announcementTR}
-        </a>
+          className="font-bold text-sm hover:underline md:text-lg"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(announcementContent || fallbackMessage),
+          }}
+        />
       </div>
     </section>
   );
