@@ -129,7 +129,7 @@ export default function Component() {
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                   {language === "en"
                     ? "Welcome to emu.guide"
-                    : "emu.guide'a Hoş Geldiniz"}
+                    : "emu.guide'a Hoş Geldinizz"}
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                   {language === "en"
