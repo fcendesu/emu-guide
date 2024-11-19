@@ -134,7 +134,7 @@ export default function Component() {
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                   {language === "en"
                     ? "Your comprehensive guide to Eastern Mediterranean University"
-                    : "Doğu Akdeniz Üniversitesi için kapsamlı rehberiniz"}
+                    : "Doğu Akdeniz Üniversitesi için kapsamlı reehberiniz"}
                 </p>
               </div>
             </div>
