@@ -49,25 +49,93 @@ You can suggest new implementations of current logic, functionality, or views to
 
 Your contributions will help make Emu Guide a better resource for the EMU community.
 
-## How to start developing
+## Contributing
 
-1. **Clone the Repository**
+### Development Process
 
-   Open your terminal and clone the repository using the following command:
+1. Fork and clone the repository
+2. Create your feature branch:
 
    ```bash
-   git clone git@github.com:atasoya/emu-guide.git
+   git checkout -b feature/my-feature
+   # or
+   git checkout -b fix/my-fix
    ```
 
-2. **Navigate to Project Directory**
-   ```bash
-   cd emu-guide
-   ```
-3. **Install Dependencies**
+3. Set up development environment:
+
    ```bash
    npm install
+   cp example.env.local .env.local
+   # Update MongoDB URL in .env.local
    ```
-4. **Start the local server**
+
+4. Commit your changes using [Conventional Commits](https://www.conventionalcommits.org/):
    ```bash
-   npm run dev
+   git commit -m "feat: add new feature"
+   # or
+   git commit -m "fix: resolve issue #123"
    ```
+
+### Pull Request Guidelines
+
+1. **Title**: Use conventional commits format (feat/fix/docs/style/refactor)
+2. **Description**:
+   - Explain the changes
+   - Reference related issues
+   - Include screenshots for UI changes
+
+### Bug Reports
+
+Please include:
+
+- Steps to reproduce
+- Expected behavior
+- Actual behavior
+- Environment details
+
+### Feature Requests
+
+Please include:
+
+- Clear description
+- Use case
+- Expected behavior
+
+### Code Quality
+
+- Write tests for new features
+- Follow existing code style
+- Keep changes focused and atomic
+- Add comments for complex logic
+
+## Environment Setup
+
+### Setting Up Environment Keys
+
+1. Create a new `.env.local` file in the root directory:
+
+   ```bash
+   cp example.env.local .env.local
+   ```
+
+2. Update the `.env.local` file with your MongoDB connection string:
+
+   - Replace `username` with your MongoDB username
+   - Replace `password` with your MongoDB password
+   - Replace `localhost:27017` with your MongoDB host and port
+   - Replace `database_name` with your database name
+
+   Example for local development:
+
+   ```
+   MONGODB_URL=mongodb://localhost:27017/your_database
+   ```
+
+   Example for MongoDB Atlas:
+
+   ```
+   MONGODB_URL=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/your_database
+   ```
+
+3. Make sure to never commit your `.env.local` file to version control. It's already included in `.gitignore`.
