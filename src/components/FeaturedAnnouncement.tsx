@@ -24,7 +24,7 @@ const FeaturedAnnouncement: React.FC<FeaturedAnnouncementProps> = ({
   const fallbackMessage =
     language === "en"
       ? "Announcement not available in English."
-      : "Duyuru Türkçe olarak mevcut değil.";
+      : "Duyuru Türkçe olarak mevcut değil..";
 
   return (
     <section className="bg-yellow-100 text-yellow-900 py-2">
